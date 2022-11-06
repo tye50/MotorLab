@@ -5,7 +5,9 @@
 
 package com.stuypulse.robot;
 
-import com.stuypulse.robot.commands.auton.DoNothingAuton;
+import com.stuypulse.robot.commands.MotorCommand;
+import com.stuypulse.robot.subsystems.SimRomi;
+import com.stuypulse.robot.subsystems.Robot;
 import com.stuypulse.stuylib.input.Gamepad;
 import com.stuypulse.stuylib.input.gamepads.keyboard.SimKeyGamepad;
 
@@ -19,6 +21,7 @@ public class RobotContainer {
     public final Gamepad driver = new SimKeyGamepad();
     
     // Subsystem
+    private Robot robot = new SimRomi();
 
     // Autons
     private static SendableChooser<Command> autonChooser = new SendableChooser<>();
@@ -48,7 +51,7 @@ public class RobotContainer {
     /**************/
 
     public void configureAutons() {
-        autonChooser.setDefaultOption("Do Nothing", new DoNothingAuton());
+        autonChooser.setDefaultOption("Drive Straight", new MotorCommand(robot));
 
         SmartDashboard.putData("Autonomous", autonChooser);
     }
