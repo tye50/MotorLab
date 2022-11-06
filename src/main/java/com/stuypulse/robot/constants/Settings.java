@@ -29,6 +29,14 @@ public interface Settings {
         
         public interface Encoder {
             double COUNTS_PER_REVOLUTION = 1440.0;
+
+            double DISTANCE_PER_PULSE = (Math.PI * Robot.WHEEL_DIAMETER_METERS) / COUNTS_PER_REVOLUTION;
+        }
+        
+        public interface Feedforward {
+            double kS = 0.45;
+            double kV = 10.00;
+            double kA = 0.186;
         }
     }
 }
