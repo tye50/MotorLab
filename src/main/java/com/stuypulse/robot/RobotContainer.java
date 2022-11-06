@@ -5,6 +5,7 @@
 
 package com.stuypulse.robot;
 
+import com.stuypulse.robot.commands.DriveFunctions;
 import com.stuypulse.robot.commands.MotorCommand;
 import com.stuypulse.robot.subsystems.SimRomi;
 import com.stuypulse.robot.subsystems.Robot;
@@ -51,7 +52,9 @@ public class RobotContainer {
     /**************/
 
     public void configureAutons() {
-        autonChooser.setDefaultOption("Drive Straight", new MotorCommand(robot));
+        autonChooser.setDefaultOption("Drive Forwards", new MotorCommand(robot, DriveFunctions::driveForwards));
+        autonChooser.addOption("Drive Backwards", new MotorCommand(robot, DriveFunctions::driveBackwards));
+        autonChooser.addOption("Turn Clockwise", new MotorCommand(robot, DriveFunctions::turnClockwise));
 
         SmartDashboard.putData("Autonomous", autonChooser);
     }
