@@ -9,10 +9,9 @@ public class CAN implements Motor {
     private CANSparkMax[] motors;
     private RelativeEncoder encoder;
 
-    public CAN(CANSparkMax... motors) {
+    public CAN(RelativeEncoder encoder, CANSparkMax... motors) {
         this.motors = motors;
-        
-        encoder = motors[0].getEncoder();
+        this.encoder = encoder;
     }
 
     @Override

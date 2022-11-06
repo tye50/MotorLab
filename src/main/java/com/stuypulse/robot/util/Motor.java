@@ -4,9 +4,9 @@ public interface Motor {
     // set speed from -1.0 to 1.0
     public void set(double speed);
 
-    // speed in rpm
+    // speed in m/s
     public double getSpeed();
 
-    // distance in rotations
+    // distance in m
     public double getDistance();
 }
