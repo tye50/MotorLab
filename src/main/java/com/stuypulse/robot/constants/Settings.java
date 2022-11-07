@@ -33,6 +33,7 @@ public interface Settings {
     }
 
     public interface Romi {
+        SmartNumber SET_DELAY = new SmartNumber("Romi/Set Delay", 0.1);
         
         public interface Robot {
             double TRACK_WIDTH_METERS = 0.141;

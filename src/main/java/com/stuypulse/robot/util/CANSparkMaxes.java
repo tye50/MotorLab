@@ -4,7 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.stuypulse.robot.constants.Settings.Limits;
 
-public class CANSparkMaxes implements Motor {
+public class CANSparkMaxes extends Motor {
 
     private CANSparkMax[] motors;
     private RelativeEncoder encoder;
