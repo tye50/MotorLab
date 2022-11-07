@@ -5,6 +5,8 @@ import java.util.function.DoubleSupplier;
 
 import com.stuypulse.robot.constants.Settings.Limits;
 
+import edu.wpi.first.math.util.Units;
+
 public class SimMotor implements Motor {
 
     private final DoubleConsumer setVoltage;
@@ -24,12 +26,12 @@ public class SimMotor implements Motor {
 
     @Override
     public double getSpeed() {
-        return speed.getAsDouble();
+        return Units.metersToInches(speed.getAsDouble());
     }
 
     @Override
     public double getDistance() {
-        return distance.getAsDouble();
+        return Units.metersToInches(distance.getAsDouble());
     }
     
 }

@@ -11,6 +11,7 @@ import com.stuypulse.stuylib.network.SmartNumber;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Transform2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.util.Units;
 
 /*-
  * File containing tunable settings for every subsystem on the robot.
@@ -35,7 +36,7 @@ public interface Settings {
         
         public interface Robot {
             double TRACK_WIDTH_METERS = 0.141;
-            double WHEEL_DIAMETER_METERS = 0.070;
+            double WHEEL_DIAMETER_METERS = Units.metersToInches(0.070);
         }
         
         public interface Encoder {

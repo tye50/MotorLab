@@ -59,7 +59,7 @@ public class RobotContainer {
         autonChooser.addOption("Turn Left", new MotorCommand(robot, DriveFunctions::turnLeft));
         autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcRight));
         autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcLeft));
-        autonChooser.addOption("Stop One Meter", new MotorCommand(robot, DriveFunctions::stopOneMeter));
+        autonChooser.addOption("Stop Distance", new MotorCommand(robot, DriveFunctions::stopDistance));
         autonChooser.addOption("Bang-bang", new MotorCommand(robot, DriveFunctions::bangBang));
         autonChooser.addOption("Better Control", new MotorCommand(robot, DriveFunctions::betterControl));
 

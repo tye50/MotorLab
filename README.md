@@ -33,9 +33,9 @@ Instead of turning in place or moving straight, try to get your romi to move for
 Use `void arcRight(Motor left, Motor right) {}` and `void arcLeft(Motor left, Motor right) {}`.
 
 ### 6: Stopping
-Until this point, all of our commands have run without end, probably with some bad consequences. Let's make our romi stop after travelling 1 meter forwards.
+Until this point, all of our commands have run without end, probably with some bad consequences. Let's make our romi stop after travelling 2 feet forwards.
 
-Use `void stopOneMeter(Motor left, Motor right) {}`.
+Use `void stopDistance(Motor left, Motor right) {}`.
 
 ### 7: Bang bang
 Although our romi does stop, you might have noticed that it overshoots our target a little bit. Lets say that we really need our romi to be on target. How about we make the romi move back if it overshot?

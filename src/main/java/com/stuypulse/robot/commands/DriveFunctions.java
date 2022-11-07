@@ -16,7 +16,7 @@ public class DriveFunctions {
 
     public static void arcLeft(Motor left, Motor right) {}
 
-    public static void stopOneMeter(Motor left, Motor right) {}
+    public static void stopDistance(Motor left, Motor right) {}
 
     public static void bangBang(Motor left, Motor right) {}
 
