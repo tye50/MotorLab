@@ -1,7 +1,9 @@
 # MotorLab
 
 ## Documentation:
-[Google Docs Link](https://docs.google.com/document/d/1jdfxj9Nu2IgoPEUOYdsv6O2Ke6_kR-LyUUz0fArGj8s/edit?usp=sharing)
+[Motor Lab Guide Link](https://docs.google.com/document/d/1jdfxj9Nu2IgoPEUOYdsv6O2Ke6_kR-LyUUz0fArGj8s/edit?usp=sharing)
+
+[DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java)
 
 ## Challenges:
 
@@ -43,4 +45,4 @@ Use `void bangBang(Motor left, Motor right) {}`.
 ### 8: Better control
 We saw in the last command that, although Bang-bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
 
-Use `void betterBangBang(Motor left, Motor right) {}`.
+Use `void betterControl(Motor left, Motor right) {}`.

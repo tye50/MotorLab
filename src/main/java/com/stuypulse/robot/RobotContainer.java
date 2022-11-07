@@ -60,7 +60,7 @@ public class RobotContainer {
         autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcLeft));
         autonChooser.addOption("Stop One Meter", new MotorCommand(robot, DriveFunctions::stopOneMeter));
         autonChooser.addOption("Bang-bang", new MotorCommand(robot, DriveFunctions::bangBang));
-        autonChooser.addOption("Better Bang-bang", new MotorCommand(robot, DriveFunctions::betterBangBang));
+        autonChooser.addOption("Better Control", new MotorCommand(robot, DriveFunctions::betterBangBang));
 
         SmartDashboard.putData("Autonomous", autonChooser);
     }
