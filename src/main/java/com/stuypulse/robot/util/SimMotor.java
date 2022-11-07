@@ -4,7 +4,8 @@ import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 
 import com.stuypulse.robot.constants.Settings.Limits;
-import com.stuypulse.stuylib.streams.filters.LowPassFilter;
+import com.stuypulse.robot.constants.Settings.Romi;
+import com.stuypulse.stuylib.streams.filters.IFilter;
 
 import edu.wpi.first.math.util.Units;
 
@@ -15,7 +16,7 @@ public class SimMotor extends Motor {
     private final DoubleSupplier distance;
 
     private double targetSpeed;
-    private LowPassFilter filter;
+    private IFilter filter;
 
     public SimMotor(DoubleConsumer setVoltage, DoubleSupplier speed, DoubleSupplier distance) {
         this.setVoltage = setVoltage;
@@ -23,7 +24,7 @@ public class SimMotor extends Motor {
         this.distance = distance;
 
         targetSpeed = 0;
-        filter = new LowPassFilter(0.2);
+        filter = new DelayFilter(Romi.SET_DELAY);
     }
 
     @Override

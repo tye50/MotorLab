@@ -1,7 +1,8 @@
 package com.stuypulse.robot.util;
 
 import com.stuypulse.robot.constants.Settings.Limits;
-import com.stuypulse.stuylib.streams.filters.LowPassFilter;
+import com.stuypulse.robot.constants.Settings.Romi;
+import com.stuypulse.stuylib.streams.filters.IFilter;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
@@ -12,14 +13,14 @@ public class RomiMotor extends Motor {
     private Encoder encoder;
 
     private double targetSpeed;
-    private LowPassFilter filter;
+    private IFilter filter;
 
     public RomiMotor(Spark motor, Encoder encoder) {
         this.motor = motor;
         this.encoder = encoder;
 
         targetSpeed = 0;
-        filter = new LowPassFilter(0.2);
+        filter = new DelayFilter(Romi.SET_DELAY);
     }
 
     @Override

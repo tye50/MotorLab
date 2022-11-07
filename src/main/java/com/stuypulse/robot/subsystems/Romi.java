@@ -39,6 +39,8 @@ public class Romi extends Robot {
 
   private final Field2d field = new Field2d();
 
+  private final Motor left, right;
+
   /** Creates a new RomiDrivetrain. */
   public Romi() {
     leftEncoder.setDistancePerPulse(DISTANCE_PER_PULSE);
@@ -49,6 +51,9 @@ public class Romi extends Robot {
 
     // Invert right side since motor is flipped
     rightMotor.setInverted(true);
+
+    left = new RomiMotor(leftMotor, leftEncoder);
+    right = new RomiMotor(rightMotor, rightEncoder);
 
     odometry = new DifferentialDriveOdometry(getRotation2d());
 
@@ -78,12 +83,12 @@ public class Romi extends Robot {
 
   @Override
   public Motor getLeftMotor() {
-    return new RomiMotor(leftMotor, leftEncoder);
+    return left;
   }
 
   @Override
   public Motor getRightMotor() {
-    return new RomiMotor(rightMotor, rightEncoder);
+    return right;
   }
 
   @Override

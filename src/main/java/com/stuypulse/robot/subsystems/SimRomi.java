@@ -30,10 +30,11 @@ public class SimRomi extends Robot {
 
 	private double leftVoltage, rightVoltage;
 
-	private final DifferentialDriveKinematics kinematics = new DifferentialDriveKinematics(TRACK_WIDTH_METERS);
 	private final DifferentialDriveOdometry odometry;
 
 	private final Field2d field;
+
+	private final Motor left, right;
 
 	public SimRomi() {
 		sim = new DifferentialDrivetrainSim(
@@ -51,7 +52,8 @@ public class SimRomi extends Robot {
 
 		field = new Field2d();
 
-		sim.setPose(new Pose2d(8, 4, new Rotation2d()));
+		left = new SimMotor(this::setLeftVoltgage, sim::getLeftVelocityMetersPerSecond, sim::getLeftPositionMeters);
+		right = new SimMotor(this::setRightVoltgage, sim::getRightVelocityMetersPerSecond, sim::getRightPositionMeters);
 
 		SmartDashboard.putData(field);
 	}
@@ -89,19 +91,19 @@ public class SimRomi extends Robot {
 
 	@Override
 	public Motor getLeftMotor() {
-		return new SimMotor(this::setLeftVoltgage, sim::getLeftVelocityMetersPerSecond, sim::getLeftPositionMeters);
+		return left;
 	}
 
 	@Override
 	public Motor getRightMotor() {
-		return new SimMotor(this::setRightVoltgage, sim::getRightVelocityMetersPerSecond, sim::getRightPositionMeters);
+		return right;
 	}
 
 	@Override
 	public void periodic() {
-	  odometry.update(getRotation2d(), sim.getLeftPositionMeters(), sim.getRightPositionMeters());
+	  	odometry.update(getRotation2d(), sim.getLeftPositionMeters(), sim.getRightPositionMeters());
 
-
+		SmartDashboard.putNumber("left voltage", leftVoltage);
   
 		sim.setInputs(
 			clamp(leftVoltage),
