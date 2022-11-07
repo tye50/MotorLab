@@ -2,6 +2,7 @@ package com.stuypulse.robot.subsystems;
 
 import static com.stuypulse.robot.constants.Settings.Romi.Robot.*;
 
+import com.stuypulse.robot.constants.Settings;
 import com.stuypulse.robot.util.Motor;
 import com.stuypulse.robot.util.SimMotor;
 
@@ -49,6 +50,9 @@ public class SimRomi extends Robot {
 		odometry = new DifferentialDriveOdometry(getRotation2d());
 
 		field = new Field2d();
+
+		sim.setPose(new Pose2d(8, 4, new Rotation2d()));
+
 		SmartDashboard.putData(field);
 	}
 	
@@ -96,6 +100,8 @@ public class SimRomi extends Robot {
 	@Override
 	public void periodic() {
 	  odometry.update(getRotation2d(), sim.getLeftPositionMeters(), sim.getRightPositionMeters());
+
+
   
 		sim.setInputs(
 			clamp(leftVoltage),
@@ -104,7 +110,7 @@ public class SimRomi extends Robot {
 
 		sim.update(0.02);
 
-		field.setRobotPose(getPose());
+		field.setRobotPose(getPose().plus(Settings.Field.FIELD_OFFSET));
 
 		SmartDashboard.putNumber("Left Velocity", sim.getLeftVelocityMetersPerSecond());
 		SmartDashboard.putNumber("Right Velocity", sim.getRightVelocityMetersPerSecond());

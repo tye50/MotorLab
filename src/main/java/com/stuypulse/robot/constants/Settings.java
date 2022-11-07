@@ -8,6 +8,10 @@ package com.stuypulse.robot.constants;
 import com.stuypulse.stuylib.network.SmartBoolean;
 import com.stuypulse.stuylib.network.SmartNumber;
 
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Transform2d;
+import edu.wpi.first.math.geometry.Translation2d;
+
 /*-
  * File containing tunable settings for every subsystem on the robot.
  *
@@ -15,13 +19,20 @@ import com.stuypulse.stuylib.network.SmartNumber;
  * values that we can edit on Shuffleboard.
  */
 public interface Settings {
+    
     public interface Limits {
         int CAN_MAX_VOLTS = 8;
 
         int ROMI_MAX_VOLTS = 8;
+        
+    }
+
+    public interface Field {
+        Transform2d FIELD_OFFSET = new Transform2d(new Translation2d(0,0), new Rotation2d(0) );
     }
 
     public interface Romi {
+        
         public interface Robot {
             double TRACK_WIDTH_METERS = 0.141;
             double WHEEL_DIAMETER_METERS = 0.070;
