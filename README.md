@@ -1,6 +1,6 @@
 # MotorLab
 
-## Documentation:
+## Guide:
 [Motor Lab Guide Link](https://docs.google.com/document/d/1jdfxj9Nu2IgoPEUOYdsv6O2Ke6_kR-LyUUz0fArGj8s/edit?usp=sharing)
 
 [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java)
