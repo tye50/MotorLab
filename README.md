@@ -38,7 +38,7 @@ Until this point, all of our commands have run without end, probably with some b
 Use `void stopDistance(Motor left, Motor right) {}`.
 
 ### 7: Bang bang
-Although our romi does stop, you might have noticed that it overshoots our target a little bit. Lets say that we really need our romi to be on target. How about we make the romi move back if it overshot?
+Although our romi does stop, you might have noticed that it overshoots our target a little bit. Lets say that we really need our romi to be on target. How about we make the romi move back if it overshot and forward if it undershoots?
 
 Use `void bangBang(Motor left, Motor right) {}`.
 
