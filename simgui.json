@@ -1,4 +1,16 @@
 {
+  "HALProvider": {
+    "Other Devices": {
+      "window": {
+        "visible": false
+      }
+    },
+    "Timing": {
+      "window": {
+        "visible": false
+      }
+    }
+  },
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
@@ -14,6 +26,11 @@
         }
       },
       "/SmartDashboard/Field": {
+        "Robot": {
+          "image": "images/romi.png",
+          "length": 1.0,
+          "width": 1.0
+        },
         "height": 8.0,
         "width": 16.0,
         "window": {
@@ -21,5 +38,8 @@
         }
       }
     }
+  },
+  "NetworkTables View": {
+    "visible": false
   }
 }
