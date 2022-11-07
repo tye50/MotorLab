@@ -9,6 +9,7 @@ import com.stuypulse.robot.commands.DriveFunctions;
 import com.stuypulse.robot.commands.MotorCommand;
 import com.stuypulse.robot.subsystems.SimRomi;
 import com.stuypulse.robot.subsystems.Robot;
+import com.stuypulse.robot.subsystems.Romi;
 import com.stuypulse.stuylib.input.Gamepad;
 import com.stuypulse.stuylib.input.gamepads.keyboard.SimKeyGamepad;
 
@@ -22,7 +23,7 @@ public class RobotContainer {
     public final Gamepad driver = new SimKeyGamepad();
     
     // Subsystem
-    private Robot robot = new SimRomi();
+    private Robot robot = new Romi();
 
     // Autons
     private static SendableChooser<Command> autonChooser = new SendableChooser<>();
@@ -60,7 +61,7 @@ public class RobotContainer {
         autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcLeft));
         autonChooser.addOption("Stop One Meter", new MotorCommand(robot, DriveFunctions::stopOneMeter));
         autonChooser.addOption("Bang-bang", new MotorCommand(robot, DriveFunctions::bangBang));
-        autonChooser.addOption("Better Control", new MotorCommand(robot, DriveFunctions::betterBangBang));
+        autonChooser.addOption("Better Control", new MotorCommand(robot, DriveFunctions::betterControl));
 
         SmartDashboard.putData("Autonomous", autonChooser);
     }
