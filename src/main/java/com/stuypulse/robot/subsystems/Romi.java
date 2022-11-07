@@ -67,8 +67,13 @@ public class Romi extends Robot {
     odometry.resetPosition(pose, new Rotation2d());
   }
 
+  public double getRadians() {
+    return (rightEncoder.getDistance() - rightEncoder.getDistance()) / TRACK_WIDTH_METERS;
+  }
+
   public Rotation2d getRotation2d() {
-    return new Rotation2d((rightEncoder.getDistance() - rightEncoder.getDistance()) / TRACK_WIDTH_METERS);
+    // inverted to keep in convention of ccw positive
+    return new Rotation2d(-getRadians());
   }
 
   @Override
