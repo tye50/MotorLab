@@ -60,7 +60,8 @@ public class SimRomi extends Robot {
 		return sim.getPose();
 	}
 
-	public void setPose(Pose2d pose) {
+	@Override
+	public void reset(Pose2d pose) {
 		sim.setPose(pose);
 
 		odometry.resetPosition(pose, new Rotation2d());
@@ -90,12 +91,6 @@ public class SimRomi extends Robot {
 	@Override
 	public Motor getRightMotor() {
 		return new SimMotor(this::setRightVoltgage, sim::getRightVelocityMetersPerSecond, sim::getRightPositionMeters);
-	}
-
-	@Override
-	public void stop() {
-		leftVoltage = 0;
-		rightVoltage = 0;
 	}
 
 	@Override
