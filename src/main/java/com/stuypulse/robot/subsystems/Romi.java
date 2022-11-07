@@ -6,6 +6,9 @@ package com.stuypulse.robot.subsystems;
 
 import static com.stuypulse.robot.constants.Ports.Romi.*;
 import static com.stuypulse.robot.constants.Settings.Romi.Robot.*;
+
+import com.stuypulse.robot.constants.Settings;
+
 import static com.stuypulse.robot.constants.Settings.Romi.Encoder.*;
 
 import com.stuypulse.robot.util.Motor;
@@ -78,7 +81,8 @@ public class Romi extends Robot {
 
   @Override
   public void periodic() {
+
     odometry.update(getRotation2d(), leftEncoder.getDistance(), rightEncoder.getDistance());
-    field.setRobotPose(getPose());
+    field.setRobotPose(getPose().plus(Settings.Field.FIELD_OFFSET));
   }
 }
