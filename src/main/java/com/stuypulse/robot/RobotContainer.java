@@ -54,7 +54,13 @@ public class RobotContainer {
     public void configureAutons() {
         autonChooser.setDefaultOption("Drive Forwards", new MotorCommand(robot, DriveFunctions::driveForwards));
         autonChooser.addOption("Drive Backwards", new MotorCommand(robot, DriveFunctions::driveBackwards));
-        autonChooser.addOption("Turn Clockwise", new MotorCommand(robot, DriveFunctions::turnClockwise));
+        autonChooser.addOption("Turn Right", new MotorCommand(robot, DriveFunctions::turnRight));
+        autonChooser.addOption("Turn Left", new MotorCommand(robot, DriveFunctions::turnLeft));
+        autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcRight));
+        autonChooser.addOption("Arc Right", new MotorCommand(robot, DriveFunctions::arcLeft));
+        autonChooser.addOption("Stop One Meter", new MotorCommand(robot, DriveFunctions::stopOneMeter));
+        autonChooser.addOption("Bang-bang", new MotorCommand(robot, DriveFunctions::bangBang));
+        autonChooser.addOption("Better Bang-bang", new MotorCommand(robot, DriveFunctions::betterBangBang));
 
         SmartDashboard.putData("Autonomous", autonChooser);
     }

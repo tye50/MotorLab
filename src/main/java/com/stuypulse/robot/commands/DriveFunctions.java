@@ -8,6 +8,18 @@ public class DriveFunctions {
 
     public static void driveBackwards(Motor left, Motor right) {}
 
-    public static void turnClockwise(Motor left, Motor right) {}
+    public static void turnRight(Motor left, Motor right) {}
+
+    public static void turnLeft(Motor left, Motor right) {}
+
+    public static void arcRight(Motor left, Motor right) {}
+
+    public static void arcLeft(Motor left, Motor right) {}
+
+    public static void stopOneMeter(Motor left, Motor right) {}
+
+    public static void bangBang(Motor left, Motor right) {}
+
+    public static void betterBangBang(Motor left, Motor right) {}
 
 }
