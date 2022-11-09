@@ -95,6 +95,7 @@ public class Romi extends Robot {
   public void periodic() {
 
     odometry.update(getRotation2d(), leftEncoder.getDistance(), rightEncoder.getDistance());
-    field.setRobotPose(getPose().plus(Settings.Field.FIELD_OFFSET));
+
+		field.setRobotPose(new Pose2d(getPose().getTranslation().plus(Settings.Field.FIELD_OFFSET), getPose().getRotation()));
   }
 }
