@@ -20,6 +20,8 @@ public class DriveFunctions {
 
     public static void bangBang(Motor left, Motor right) {}
 
+    public static void lessBang(Motor left, Motor right) {}
+
     public static void betterControl(Motor left, Motor right) {}
 
 }
