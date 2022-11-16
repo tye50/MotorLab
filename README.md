@@ -1,5 +1,15 @@
 # MotorLab
 
+## Background
+
+Motors are the cause of **any** movement that happens on the robot, so understanding how to interact with them in code is extremely fundamental for programming all parts of the robot. 
+
+In general, motors are devices that convert electrical energy into motion, which is a complicated way of saying that they spin when you power them. This is reflected in robot code, as the most common way to get a motor to do something is to give it what's called a "duty cycle", which is a value between -1.0 and +1.0 which dictates at what percent of full power the motor will spin at. 
+
+This fact about motors is reflected in the code that is used to control them. The most common way motors are controlled in code is by setting their duty cycle value, usually by something that looks like `motor.set(1.0)`. 
+
+For a robot's drivetrain, motors allow it to move, whether that be through human input or autonomous routines. This lab will guide you through a series of challenges to get used to utilizing motors for simple drivetrain motion, as well as building the foundation for using **control theory** to use motors for autonomous control.
+
 ## Guide
 
 ### Github
@@ -11,6 +21,10 @@ To download your code go back to https://github.com/ and find the new MotorLab. 
 
 Open Git Bash (or Terminal if you're on a Mac) and type `git clone <link here>` (in Git Bash you may need to right click and press paste).
 ![Cloning in git bash](images/term.png)
+
+### Push to Github
+
+*you got this ben*
 
 ### Coding
 Once you've cloned your code, open the MotorLab folder in VSCode. The only file you'll be editing is [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) (`src/main/java/com/stuypulse/robot/commands/DriveFunctions.java`).
@@ -52,7 +66,7 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
     <tbody>
         <tr>
             <td>left.set(x)</td>
-            <td rowspan=2>Set the motor speed to x, a value from 1.0 to -1.0 (1.0 is full speed forwards, -1.0 is full speed backwards).</td>
+            <td rowspan=2>Set the motor percentage to <pre>x</pre>, a value from 1.0 to -1.0 (1.0 is full speed forwards, -1.0 is full speed backwards).</td>
             <td rowspan=2>nothing (void)</td>
         </tr>
         <tr>
@@ -72,7 +86,7 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
 ## Challenges:
 
 ### 1: Drive forwards
-No limits on how long or how far, just get your romi to drive straight!
+Simply get your romi to drive straight! No need to stop it.
 
 Use `void driveForwards(Motor left, Motor right) {}`.
 
@@ -82,12 +96,14 @@ Just like the last command, but backwards.
 Use `void driveBackwards(Motor left, Motor right) {}`.
 
 ### 3: Turn in place
-Make your romi turn clockwise in place. You'll need to think about this one!
+Make your romi turn in-place clockwise. It shoulds
+
+You'll need to think about this one!
 
 Use `void turnRight(Motor left, Motor right) {}`.
 
 ### 4: Turn left
-Make your romi turn counter-clockwise in place.
+Make your romi turn in-place counter-clockwise.
 
 Use `void turnLeft(Motor left, Motor right) {}`.
 
