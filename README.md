@@ -162,7 +162,9 @@ Bang Bang will *technically* work, but clearly when you run it, it continually o
 
 By changing how fast the control law will control the robot, we can get a safer and better *control loop* (control loop just refers to the code that uses a control law on a motor).
 
-Rather than running the motors at +1.0 and -1.0, run them at a smaller value. If the value is too low, you will get a slow response time, but your oscillations will be lesser. 
+Rather than running the motors at +1.0 and -1.0, run them at a smaller value. If the value is too low, you will get a slow response time, but your oscillations will be lesser. If the value is high (e.g. 1.0) it will reach the setpoint really quickly but oscillate a lot.
+
+For this Bang Bang version, tune the value you are feeding your motor to find a good balance of response time and oscillation.
 
 Use `void lessBang(Motor left, Motor right) {}`
 
