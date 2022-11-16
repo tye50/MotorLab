@@ -1,16 +1,6 @@
 # MotorLab
 
-## Background
-
-Motors are the cause of **any** movement that happens on the robot, so understanding how to interact with them in code is extremely fundamental for programming all parts of the robot. 
-
-In general, motors are devices that convert electrical energy into motion, which is a complicated way of saying that they spin when you power them. This is reflected in robot code, as the most common way to get a motor to do something is to give it what's called a "duty cycle", which is a value between -1.0 and +1.0 which dictates at what percent of full power the motor will spin at. 
-
-This fact about motors is reflected in the code that is used to control them. The most common way motors are controlled in code is by setting their duty cycle value, usually by something that looks like `motor.set(1.0)`. 
-
-For a robot's drivetrain, motors allow it to move, whether that be through human input or autonomous routines. This lab will guide you through a series of challenges to get used to utilizing motors for simple drivetrain motion, as well as building the foundation for using **control theory** to use motors for autonomous control.
-
-## Guide
+## Installation
 
 ### Github
 Make sure you're signed in on https://github.com/ before you start. To make a fork of this code so that you can edit and keep your own version, click on the "fork" button at the top right (shown below). Leave all of the settings as is and press "fork" again.
@@ -72,6 +62,17 @@ To select which command to run, use the Autonomous drop down shown below and cho
 To run the robot, click on "Autonomous" in the robot state selector. To restart, press "Disabled" and then "Autonomous" again.
 
 ![Robot state selector](images/robotstate.png)
+
+## MotorLab
+
+Motors are the cause of **any** movement that happens on the robot, so understanding how to interact with them in code is extremely fundamental for programming all parts of the robot. 
+
+In general, motors are devices that convert electrical energy into motion, which is a complicated way of saying that they spin when you power them. This is reflected in robot code, as the most common way to get a motor to do something is to give it what's called a "duty cycle", which is a value between -1.0 and +1.0 which dictates at what percent of full power the motor will spin at. 
+
+This fact about motors is reflected in the code that is used to control them. The most common way motors are controlled in code is by setting their duty cycle value, usually by something that looks like `motor.set(1.0)`. 
+
+For a robot's drivetrain, motors allow it to move, whether that be through human input or autonomous routines. This lab will guide you through a series of challenges to get used to utilizing motors for simple drivetrain motion, as well as building the foundation for using **control theory** to use motors for autonomous control.
+
 
 ### Motor Functions
 <table>
