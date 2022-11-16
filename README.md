@@ -111,16 +111,26 @@ Use `void turnLeft(Motor left, Motor right) {}`.
 \* some intermediate activities about running the motors not at just -1 and +1 to make sure they do it *
 
 ### Basic Autonomy
-Until this point, all of our commands have run without end, probably with some bad consequences. Let's make our romi stop after travelling 2 feet forwards.
+Until this point, the robot has just run infinitely based on what you have hard coded. Even if you replaced the 1's and -1's with inputs from a gamepad, the robot still relies on human instruction. 
+
+Let's start exploring autonomous robot movement, which should rely as minimally as possible on human input. One of the most essential types of autonomous movement for a robot is driving to a distance.
+
+The distance that we want the robot to stop at is called the *setpoint*. Create a variable inside the function that represents the setpoint, and set it to `60.0`. (It can really be anything, but that's why you made it into a variable -- 60 is a good distance though). 
 
 Use `void stopDistance(Motor left, Motor right) {}`.
 
-### 7: Bang bang
+What you have created is considered a *control law*, or some mathematical formula or logic that will make a *measurement* approach a *setpoint*. (Think: the measurement in this case is the distance of the robot). By telling the motors to drive forward when the setpoint has not been reached, we are increasing the measurement until it approaches a setpoint.
+
+A good *control law* is essential for good autonomous control. This is a very simple control law, and the next few challenges will have you build on it to make better intelligent robots.
+
+### Bang Bang
+There are several issues with our first control law. Firstly, 
+
 Although our romi does stop, you might have noticed that it overshoots our target a little bit. Lets say that we really need our romi to be on target. How about we make the romi move back if it overshot and forward if it undershoots?
 
 Use `void bangBang(Motor left, Motor right) {}`.
 
-### 8: Better control
+### Better Control
 We saw in the last command that, although Bang-bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
 
 Use `void betterControl(Motor left, Motor right) {}`.
