@@ -87,6 +87,8 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
 
 Using the **Motor Functions** given above, and all the Java knowledge learned (data types, variables, operators, if's and conditionals), complete these challenges within the brackets for a given function. They can be found in the [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) file. 
 
+Each of these functions will run continuously for you, so you do **NOT** need loops to run these functions. That is handled for you.
+
 ### Driving
 Simply get your romi to drive straight! No need to stop it.
 
@@ -136,7 +138,16 @@ Use `void bangBang(Motor left, Motor right) {}`.
 
 This control law is called Bang-Bang and its issues will make it clear how to improve even more.
 
-### Better Control
-We saw in the last command that, although Bang-bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
+### Less Bang
+Bang Bang will *technically* work, but clearly when you run it, it continually oscillates. It also the same issue as our first law, where make sudden changes in direction are inconsistent and dangerous.
+
+By changing how fast the control law will control the robot, we can get a safer and better *control loop* (control loop just refers to the code that uses a control law on a motor).
+
+Rather than running the motors at +1.0 and -1.0, run them at a smaller value. If the value is too low, you will get a slow response time, but your oscillations will be lesser. 
+
+Use `void lessBang(Motor left, Motor right) {}`
+
+### Proportional Control
+We saw in the last command that, although Bang-Bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
 
 Use `void betterControl(Motor left, Motor right) {}`.
