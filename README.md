@@ -59,14 +59,6 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
             <td>right.set(x)</td>
         </tr>
         <tr>
-            <td>left.setSpeed()</td>
-            <td rowspan=2>Returns the speed in inches per second of the motor.</td>
-            <td rowspan=2>double</td>
-        </tr>
-        <tr>
-            <td>right.setSpeed()</td>
-        </tr>
-        <tr>
             <td>left.getDistance()</td>
             <td rowspan=2>Returns the distance in inches the motor has traveled. NOTE: if the robot moves 3 inches forward and 3 backwards, the distance will be 0.</td>
             <td rowspan=2>double</td>
