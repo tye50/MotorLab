@@ -24,7 +24,23 @@ Open Git Bash (or Terminal if you're on a Mac) and type `git clone <link here>` 
 
 ### Push to Github
 
-*you got this ben*
+There are 3 steps to pushing to Github: Adding, Committing, and Pushing.
+
+#### Adding
+
+Before pushing code to github, you have to choose which changes you want to include. VSCode has a git menu, as shown in the picture below. If you want to add the changes from a certain file, you can hover over the file name and click "+". This will bring the changes into the "Staged Changes" section.
+![Git menu in VSCode](images/stage.jpg)
+
+#### Committing
+
+Commits are a way of grouping changes that you're going to push to github. You can add a message to your commit in the text box above "Staged Changes". To commit, click the check mark.
+![Commit in VSCode](images/commit.jpg)
+
+#### Pushing
+
+Once you've committed, all thats left is to sync your local changes with the code online. To do this, press the blue "Sync Changes" button or click on the three dots by "Source Control" and click "Push".
+![Push in VSCode](images/push.jpg)
+
 
 ### Coding
 Once you've cloned your code, open the MotorLab folder in VSCode. The only file you'll be editing is [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) (`src/main/java/com/stuypulse/robot/commands/DriveFunctions.java`).
