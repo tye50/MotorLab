@@ -73,7 +73,7 @@ public class Romi extends Robot {
   }
 
   public double getRadians() {
-    return (rightEncoder.getDistance() - rightEncoder.getDistance()) / TRACK_WIDTH_METERS;
+    return (leftEncoder.getDistance() - rightEncoder.getDistance()) / TRACK_WIDTH_METERS;
   }
 
   public Rotation2d getRotation2d() {
