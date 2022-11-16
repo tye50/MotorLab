@@ -124,11 +124,17 @@ What you have created is considered a *control law*, or some mathematical formul
 A good *control law* is essential for good autonomous control. This is a very simple control law, and the next few challenges will have you build on it to make better intelligent robots.
 
 ### Bang Bang
-There are several issues with our first control law. Firstly, 
+There are several issues with our first control law. Firstly, if our robot is really heavy and we let it get to a high speed, it will have built up a lot of momentum. By the time we tell it to stop, it will simply roll past the *setpoint*. 
 
-Although our romi does stop, you might have noticed that it overshoots our target a little bit. Lets say that we really need our romi to be on target. How about we make the romi move back if it overshot and forward if it undershoots?
+(Think about if you were running full speed and suddenly planted your foot into the ground and stopped running. You would either topple over or hurt your leg. The robot will feel these same forces and topple over or damage itself).
+
+A related issue is that the control law does not handle if the robot is in front of its setpoint, rather than behind. If the robot rolls over its setpoint or the setpoint was simply behind the robot, then it will tell the robot to not move. 
+
+What we can do is write a more advanced control law that will send the robot backwards if its past its setpoint and forward if its behind its setpoint.
 
 Use `void bangBang(Motor left, Motor right) {}`.
+
+This control law is called Bang-Bang and its issues will make it clear how to improve even more.
 
 ### Better Control
 We saw in the last command that, although Bang-bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
