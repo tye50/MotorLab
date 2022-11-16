@@ -85,34 +85,32 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
 
 ## Challenges:
 
-### 1: Drive forwards
+Using the **Motor Functions** given above, and all the Java knowledge learned (data types, variables, operators, if's and conditionals), complete these challenges within the brackets for a given function. They can be found in the [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) file. 
+
+### Driving
 Simply get your romi to drive straight! No need to stop it.
 
 Use `void driveForwards(Motor left, Motor right) {}`.
 
-### 2: Drive backwards
 Just like the last command, but backwards.
 
 Use `void driveBackwards(Motor left, Motor right) {}`.
 
-### 3: Turn in place
-Make your romi turn in-place clockwise. It shoulds
+### Turning
+Make your romi turn in-place clockwise (to the right). It should spin around its center.
 
 You'll need to think about this one!
 
 Use `void turnRight(Motor left, Motor right) {}`.
 
-### 4: Turn left
-Make your romi turn in-place counter-clockwise.
+Do it again but counter-clockwise (to the left).
 
 Use `void turnLeft(Motor left, Motor right) {}`.
 
-### 5: Arcing left and right
-Instead of turning in place or moving straight, try to get your romi to move forward while turning.
 
-Use `void arcRight(Motor left, Motor right) {}` and `void arcLeft(Motor left, Motor right) {}`.
+\* some intermediate activities about running the motors not at just -1 and +1 to make sure they do it *
 
-### 6: Stopping
+### Basic Autonomy
 Until this point, all of our commands have run without end, probably with some bad consequences. Let's make our romi stop after travelling 2 feet forwards.
 
 Use `void stopDistance(Motor left, Motor right) {}`.
