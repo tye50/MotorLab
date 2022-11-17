@@ -199,6 +199,8 @@ Start by figuring out a value for *kP* that will ensure that when the autonomous
 
 Use `void betterControl(Motor left, Motor right) {}`.
 
+This control algorithm is called a P-Control, which is one component of a greater algorithm called PID-Control.
+
 ### Derivative control
 
 Use `void bestestControl(Motor left, Motor right) {}`.
