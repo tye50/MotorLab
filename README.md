@@ -67,9 +67,9 @@ To run the robot, click on "Autonomous" in the robot state selector. To restart,
 
 Motors are the cause of **any** movement that happens on the robot, so understanding how to interact with them in code is extremely fundamental for programming all parts of the robot. 
 
-In general, motors are devices that convert electrical energy into motion, which is a complicated way of saying that they spin when you power them. This is reflected in robot code, as the most common way to get a motor to do something is to give it what's called a "duty cycle", which is a value between -1.0 and +1.0 which dictates at what percent of full power the motor will spin at. 
+In general, motors are devices that convert electrical energy into motion, which is a complicated way of saying that they spin when you power them. As a result, the most common way to get a motor to do something is to give it what's called a "duty cycle", which is a value between -1.0 and +1.0 which dictates at what percent of full power the motor will spin at. 
 
-This fact about motors is reflected in the code that is used to control them. The most common way motors are controlled in code is by setting their duty cycle value, usually by something that looks like `motor.set(1.0)`. 
+These facts about motors are reflected in the code that is used to control them. The most common way motors are controlled in code is by setting their duty cycle value, usually by something that looks like `motor.set(1.0)`. 
 
 For a robot's drivetrain, motors allow it to move, whether that be through human input or autonomous routines. This lab will guide you through a series of challenges to get used to utilizing motors for simple drivetrain motion, as well as building the foundation for using **control theory** to use motors for autonomous control.
 
@@ -86,7 +86,7 @@ For a robot's drivetrain, motors allow it to move, whether that be through human
     <tbody>
         <tr>
             <td>left.set(x)</td>
-            <td rowspan=2>Set the motor percentage to <pre>x</pre>, a value from 1.0 to -1.0 (1.0 is full speed forwards, -1.0 is full speed backwards).</td>
+            <td rowspan=2>Set the motor percentage to x, a value from 1.0 to -1.0 (1.0 is full speed forwards, -1.0 is full speed backwards).</td>
             <td rowspan=2>nothing (void)</td>
         </tr>
         <tr>
@@ -107,14 +107,14 @@ For a robot's drivetrain, motors allow it to move, whether that be through human
 
 Using the **Motor Functions** given above, and all the Java knowledge learned (data types, variables, operators, if's and conditionals), complete these challenges within the brackets for a given function. They can be found in the [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) file. 
 
-Each of these functions will run continuously for you, so you do **NOT** need loops to run these functions. That is handled for you.
+Each of these functions will run continuously, so you do **NOT** need loops to run these functions. That is handled for you.
 
 ### Driving
 Simply get your romi to drive straight! No need to stop it.
 
 Use `void driveForwards(Motor left, Motor right) {}`.
 
-Just like the last command, but backwards.
+Just like the last command, but backwards:
 
 Use `void driveBackwards(Motor left, Motor right) {}`.
 
@@ -125,12 +125,23 @@ You'll need to think about this one!
 
 Use `void turnRight(Motor left, Motor right) {}`.
 
-Do it again but counter-clockwise (to the left).
+Do it again but counter-clockwise (to the left):
 
 Use `void turnLeft(Motor left, Motor right) {}`.
 
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
 
 \* some intermediate activities about running the motors not at just -1 and +1 to make sure they do it *
+
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
+LOOK AT ME
 
 ### Basic Autonomy
 Until this point, the robot has just run infinitely based on what you have hard coded. Even if you replaced the 1's and -1's with inputs from a gamepad, the robot still relies on human instruction. 
@@ -170,6 +181,24 @@ For this Bang Bang version, tune the value you are feeding your motor to find a 
 Use `void lessBang(Motor left, Motor right) {}`
 
 ### Proportional Control
-We saw in the last command that, although Bang-Bang does bring the romi back to the target, it also has a lot of oscillation. How can we try and fix this? Can we make the romi's speed depend on how far it is from the target?
+A big problem with Bang Bang (even when tuned) is that it's always running at a constant speed. 
+
+Ideally want to avoid running at full speed when near the target, but DO want to go full speed when far from the target. Rather than a constant speed, we want the percentage we are giving to the motor to be proportional to *error*, which is the difference between the *setpoint* and the *measurement* (error = setpoint - measurement). 
+
+If we want to code a control law in which speed to the motor is proportional to error, we will need a couple of variables: *setpoint* (set this to any number, e.g. `60.0`), *measurement* (find the average of the left and right motors' distances), and *error* (use the formula above to calculate error).
+
+The last variable we will need is the value that we are going to multiply error by (this is what being proportional to error means -- being a multiple of it). Create a variable for this number called *kP* (set it to `1` for now). 
+
+Lastly, calculate the value to feed to the motors using *kP* and *error* and set the motors to that value.
+
+At this point, you can run your code, but it will basically be a bang bang loop. This is because the value you pass to `.set` is clamped between -1 and +1, so when the error is above `1.0` (because *kP* is `1` for now) the motors are going to be full speed. It is only when you're within an inch does the robot start to slow down, but by then it is too late.
+
+So then what *DO* we set *kP* to get a good response? The unfortunate answer is that you need to tune it to get a good value, but you can make good initial guesses. 
+
+Start by figuring out a value for *kP* that will ensure that when the autonomous routine starts it will give the motors `1.0` exactly and will decrease down to zero. Once you find this value, scale it up or down as needed to find a good balance between response time and oscillations.
 
 Use `void betterControl(Motor left, Motor right) {}`.
+
+### Derivative control
+
+Use `void bestestControl(Motor left, Motor right) {}`.

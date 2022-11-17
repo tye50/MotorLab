@@ -24,4 +24,5 @@ public class DriveFunctions {
 
     public static void betterControl(Motor left, Motor right) {}
 
+    public static void bestestControl(Motor left, Motor right) {}
 }
