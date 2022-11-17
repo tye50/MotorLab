@@ -187,7 +187,7 @@ Ideally want to avoid running at full speed when near the target, but DO want to
 
 If we want to code a control law in which speed to the motor is proportional to error, we will need a couple of variables: *setpoint* (set this to any number, e.g. `60.0`), *measurement* (find the average of the left and right motors' distances), and *error* (use the formula above to calculate error).
 
-The last variable we will need is the value that we are going to multiply error by (this is what being proportional to error means -- being a multiple of it). Create a variable for this number called *kP* (set it to `1` for now). 
+The last variable we will need is the value that we are going to multiply error by (this is what being proportional to error means -- being a multiple of its value). Create a variable for this number called *kP* (set it to `1` for now). 
 
 Lastly, calculate the value to feed to the motors using *kP* and *error* and set the motors to that value.
 
@@ -195,7 +195,7 @@ At this point, you can run your code, but it will basically be a bang bang loop.
 
 So then what *DO* we set *kP* to get a good response? The unfortunate answer is that you need to tune it to get a good value, but you can make good initial guesses. 
 
-Start by figuring out a value for *kP* that will ensure that when the autonomous routine starts it will give the motors `1.0` exactly and will decrease down to zero. Once you find this value, scale it up or down as needed to find a good balance between response time and oscillations.
+Start by figuring out an expression for *kP* that will ensure that when the autonomous routine starts it will calculate `1.0` exactly and will decrease down to zero as the robot drives forward. Once you find this value, scale it up or down as needed to find a good balance between response time and oscillations.
 
 Use `void betterControl(Motor left, Motor right) {}`.
 
