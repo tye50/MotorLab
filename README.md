@@ -183,7 +183,7 @@ Use `void lessBang(Motor left, Motor right) {}`
 ### Proportional Control
 A big problem with Bang Bang (even when tuned) is that it's always running at a constant speed. 
 
-Ideally want to avoid running at full speed when near the target, but DO want to go full speed when far from the target. Rather than a constant speed, we want the percentage we are giving to the motor to be proportional to *error*, which is the difference between the *setpoint* and the *measurement* (error = setpoint - measurement). 
+Ideally want to avoid running at full speed when near the target, but DO want to go full speed when far from the target. Rather than a constant speed, we want the percentage we are giving to the motor to be proportional to *error*, which is to say the higher the error, the faster the motors run. *Error* is the difference between the *setpoint* and the *measurement* (error = setpoint - measurement). 
 
 If we want to code a control law in which speed to the motor is proportional to error, we will need a couple of variables: *setpoint* (set this to any number, e.g. `60.0`), *measurement* (find the average of the left and right motors' distances), and *error* (use the formula above to calculate error).
 
