@@ -1,4 +1,9 @@
 # MotorLab
+<details>
+<summary>
+Installing from GitHub
+</summary>
+<br>
 
 ## Installation
 
@@ -11,7 +16,15 @@ To download your code go back to https://github.com/ and find the new MotorLab. 
 
 Open Git Bash (or Terminal if you're on a Mac) and type `git clone <link here>` (in Git Bash you may need to right click and press paste).
 ![Cloning in git bash](images/term.png)
+    
+</details>
 
+<details>
+<summary>
+Saving to GitHub
+</summary>
+<br>
+    
 ### Push to Github
 
 There are 3 steps to pushing to Github: Adding, Committing, and Pushing.
@@ -34,6 +47,12 @@ Once you've committed, all thats left is to sync your local changes with the cod
 
 ![Push in VSCode](images/push.jpg)
 
+</details>
+<details>
+<summary>
+Coding in VSCode
+</summary>
+<br>
 
 ### Coding
 Once you've cloned your code, open the MotorLab folder in VSCode. The only file you'll be editing is [DriveFunctions.java](src/main/java/com/stuypulse/robot/commands/DriveFunctions.java) (`src/main/java/com/stuypulse/robot/commands/DriveFunctions.java`).
@@ -42,6 +61,13 @@ This is what the file should look like (some lines cut). You'll be coding in eac
 
 For example, the code below will run the left motor at 100% forever when the `Drive Forwards` command is run.
 ![Code example](images/driveexample.png)
+
+</details>
+<details>
+<summary>
+Running in VSCode
+</summary>
+<br>
 
 ### Running your code
 You can run any of your functions whenever you want to test them in a simulated environment (as long as you aren't on a Mac 😢).
@@ -62,6 +88,8 @@ To select which command to run, use the Autonomous drop down shown below and cho
 To run the robot, click on "Autonomous" in the robot state selector. To restart, press "Disabled" and then "Autonomous" again.
 
 ![Robot state selector](images/robotstate.png)
+
+</details>
 
 ## MotorLab
 
@@ -109,7 +137,7 @@ Using the **Motor Functions** given above, and all the Java knowledge learned (d
 
 Each of these functions will run continuously, so you do **NOT** need loops to run these functions. That is handled for you.
 
-### Driving
+<details><summary>Driving</summary><br>
 Simply get your romi to drive straight! No need to stop it.
 
 Use `void driveForwards(Motor left, Motor right) {}`.
@@ -117,8 +145,9 @@ Use `void driveForwards(Motor left, Motor right) {}`.
 Just like the last command, but backwards:
 
 Use `void driveBackwards(Motor left, Motor right) {}`.
+</details>
 
-### Turning
+<details><summary>Turning</summary><br>
 Make your romi turn in-place clockwise (to the right). It should spin around its center.
 
 You'll need to think about this one!
@@ -128,8 +157,9 @@ Use `void turnRight(Motor left, Motor right) {}`.
 Do it again but counter-clockwise (to the left):
 
 Use `void turnLeft(Motor left, Motor right) {}`.
+</details>
 
-### Basic Autonomy
+<details><summary>Basic Autonomy</summary><br>
 Until this point, the robot has just run infinitely based on what you have hard coded. Even if you replaced the 1's and -1's with inputs from a gamepad, the robot still relies on human instruction. 
 
 Let's start exploring autonomous robot movement, which should rely as minimally as possible on human input. One of the most essential types of autonomous movement for a robot is driving to a distance.
@@ -141,8 +171,10 @@ Use `void stopDistance(Motor left, Motor right) {}`.
 What you have created is considered a *control law*, or some mathematical formula or logic that will make a *measurement* approach a *setpoint*. (Think: the measurement in this case is the distance of the robot). By telling the motors to drive forward when the setpoint has not been reached, we are increasing the measurement until it approaches a setpoint.
 
 A good *control law* is essential for good autonomous control. This is a very simple control law, and the next few challenges will have you build on it to make better intelligent robots.
+</details>
+    
+<details><summary>Bang Bang</summary><br>
 
-### Bang Bang
 There are several issues with our first control law. Firstly, if our robot is really heavy and we let it get to a high speed, it will have built up a lot of momentum. By the time we tell it to stop, it will simply roll past the *setpoint*. 
 
 (Think about if you were running full speed and suddenly planted your foot into the ground and stopped running. You would either topple over or hurt your leg. The robot will feel these same forces and topple over or damage itself).
@@ -154,8 +186,9 @@ What we can do is write a more advanced control law that will send the robot bac
 Use `void bangBang(Motor left, Motor right) {}`.
 
 This control law is called Bang-Bang and its issues will make it clear how to improve even more.
-
-### Less Bang
+</details>
+    
+<details><summary>Less Bang</summary><br>
 Bang Bang will *technically* work, but clearly when you run it, it continually oscillates. It also the same issue as our first law, where make sudden changes in direction are inconsistent and dangerous.
 
 By changing how fast the control law will control the robot, we can get a safer and better *control loop* (control loop just refers to the code that uses a control law on a motor).
@@ -165,8 +198,10 @@ Rather than running the motors at +1.0 and -1.0, run them at a smaller value. If
 For this Bang Bang version, tune the value you are feeding your motor to find a good balance of response time and oscillation.
 
 Use `void lessBang(Motor left, Motor right) {}`
+</details>
+    
+<details><summary>Proportional Control</summary><br>
 
-### Proportional Control
 A big problem with Bang Bang (even when tuned) is that it's always running at a constant speed. 
 
 Ideally want to avoid running at full speed when near the target, but DO want to go full speed when far from the target. Rather than a constant speed, we want the percentage we are giving to the motor to be proportional to *error*, which is to say the higher the error, the faster the motors run. *Error* is the difference between the *setpoint* and the *measurement* (error = setpoint - measurement). 
@@ -186,7 +221,10 @@ Start by figuring out an expression for *kP* that will ensure that when the auto
 Use `void betterControl(Motor left, Motor right) {}`.
 
 This control algorithm is called a P-Control, which is one component of a greater algorithm called PID-Control.
+</details>
 
-### Derivative control
+<details><summary>Derivative Control</summary><br>
 
 Use `void bestestControl(Motor left, Motor right) {}`.
+</details>
+    
