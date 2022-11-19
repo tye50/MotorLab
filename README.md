@@ -129,20 +129,6 @@ Do it again but counter-clockwise (to the left):
 
 Use `void turnLeft(Motor left, Motor right) {}`.
 
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-
-\* some intermediate activities about running the motors not at just -1 and +1 to make sure they do it *
-
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-LOOK AT ME
-
 ### Basic Autonomy
 Until this point, the robot has just run infinitely based on what you have hard coded. Even if you replaced the 1's and -1's with inputs from a gamepad, the robot still relies on human instruction. 
 
